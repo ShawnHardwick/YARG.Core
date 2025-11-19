@@ -109,6 +109,11 @@ namespace YARG.Core.Engine
         public int TotalNotes;
 
         /// <summary>
+        /// Number of chords in the chart. Defaults to total notes, but some instruments calculate differently.
+        /// </summary>
+        public int TotalChords;
+
+        /// <summary>
         /// Number of notes which have been missed.
         /// </summary>
         /// <remarks>Value is calculated from <see cref="TotalNotes"/> - <see cref="NotesHit"/>.</remarks>
@@ -188,7 +193,7 @@ namespace YARG.Core.Engine
         /// <summary>
         /// Is this a full combo?
         /// </summary>
-        public bool IsFullCombo => MaxCombo == TotalNotes;
+        public virtual bool IsFullCombo => MaxCombo == TotalNotes;
 
         /// The total note timing offset in milliseconds.
         /// Used together with NotesHit to calculate the average timing offset.
